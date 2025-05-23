@@ -1,5 +1,5 @@
 CXXFLAGS = -O2 -Wall -Wextra -Werror -std=c++17 -I../include
-SRCS = ../src/viterbi_decode.cpp ../src/viterbi_encode.cpp test.cpp
+SRCS = ../src/ViterbiDecoder.cpp ../src/ViterbiEncoder.cpp test.cpp
 OBJS = $(notdir $(SRCS:.cpp=.o))
 VPATH = ../src:.
 

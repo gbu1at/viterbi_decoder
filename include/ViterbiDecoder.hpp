@@ -13,9 +13,7 @@ private:
 
     std::vector<bool> get_output_value(int, bool) const;
 
-public:
-    ViterbiDecoder() = delete;
-    
+public:    
     ViterbiDecoder(const std::vector<int>& poly, size_t l) : 
         poly(poly), d(poly.size()), l(l) {
         

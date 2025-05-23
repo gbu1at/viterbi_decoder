@@ -1,4 +1,4 @@
-#include "viterbi_decode.hpp"
+#include "ViterbiDecoder.hpp"
 
 #include <stdexcept>
 #include <vector>
@@ -76,6 +76,7 @@ std::vector<bool> ViterbiDecoder::decode(const std::vector<bool>& code) const {
 
 
     std::vector<bool> data;
+    data.reserve(blocks);
 
     for (int block = blocks - 1; block >= 0; --block) {
         data.push_back(links[block][nearest_mask].second);

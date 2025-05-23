@@ -17,10 +17,7 @@ private:
     
     bool get_output_value(int, int, bool) const;
 
-public:
-
-    ViterbiEncoder() = delete;
-    
+public:    
     ViterbiEncoder(const std::vector<int>& poly) : 
         poly(poly), d(poly.size()) {
     }

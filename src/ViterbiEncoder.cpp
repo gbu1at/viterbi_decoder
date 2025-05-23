@@ -1,4 +1,4 @@
-#include "viterbi_encode.hpp"
+#include "ViterbiEncoder.hpp"
 #include <vector>
 
 
@@ -19,6 +19,8 @@ bool ViterbiEncoder::get_output_value(int id, int mask, bool b) const {
     
 std::vector<bool> ViterbiEncoder::encode(const std::vector<bool>& data) const {
     std::vector<bool> code;
+    code.reserve(data.size() * d);
+
     int mask = 0;
 
     for (size_t i = 0; i < data.size(); ++i) {

@@ -1,5 +1,5 @@
-#include "viterbi_encode.hpp"
-#include "viterbi_decode.hpp"
+#include "ViterbiDecoder.hpp"
+#include "ViterbiEncoder.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -8,24 +8,29 @@
 #include <fstream>
 
 
-std::random_device rd;
-std::mt19937 gen(rd());
-std::uniform_real_distribution<> dis(0.0, 1.0);
+namespace {
 
-std::vector<bool> generate_data(size_t n) {
-    std::vector<bool> data(n);
-    for (size_t i = 0; i < n; ++i)
-        data[i] = rd() % 2;
-    return data;
-}
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0.0, 1.0);
 
-std::vector<bool> noise_reduction(std::vector<bool> data, double p) {
-    for (size_t i = 0; i < data.size(); ++i) {
-        if (dis(gen) < p)
-            data[i] = !data[i];
+    std::vector<bool> generate_data(size_t n) {
+        std::vector<bool> data(n);
+        for (size_t i = 0; i < n; ++i)
+            data[i] = rd() % 2;
+        return data;
     }
-    return data;
+
+    std::vector<bool> noise_reduction(std::vector<bool> data, double p) {
+        for (size_t i = 0; i < data.size(); ++i) {
+            if (dis(gen) < p)
+                data[i] = !data[i];
+        }
+        return data;
+    }
+
 }
+
 
 int main(int argc, char* argv[]) {
     if (argc == 1) {
