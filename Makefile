@@ -1,5 +1,5 @@
 CXXFLAGS = -O2 -Wall -Wextra -Werror -std=c++17 -Iinclude
-SRCS = viterbi_encode.cpp viterbi_decode.cpp main.cpp
+SRCS = ViterbiEncoder.cpp ViterbiDecoder.cpp main.cpp
 OBJS = $(notdir $(SRCS:.cpp=.o))
 VPATH = src:.
 EXE = main

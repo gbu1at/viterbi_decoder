@@ -8,7 +8,7 @@ os.system("make clean")
 os.system("make")
 
 
-X = np.linspace(0, 0.2, 100)
+X = np.linspace(0, 1, 100)
 y = []
 
 for x in X:
@@ -19,6 +19,9 @@ for x in X:
 os.system("rm -f input.txt")
 os.system("make clean")
 plt.plot(X, y)
+plt.title("Вероятность ошибки на бит на выходе декодера от веролятности ошибки в канале");
+plt.xlabel("вероятность ошибки в канале")
+plt.ylabel("вероятность ошибки на выходе декодера")
 plt.savefig("graph.png")
 plt.show()
 
